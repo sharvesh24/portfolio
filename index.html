@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharvesh Vijayaraghavan - AI/ML Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #64b5f6, #1976d2);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d47a1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(100, 181, 246, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.1; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .profile-image {
+            width: 500px;
+            height: 200px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 4px solid rgba(100, 181, 246, 0.5);
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 20px 40px rgba(100, 181, 246, 0.3);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #64b5f6, #1976d2, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #b0bec5;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: #90a4ae;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64b5f6;
+            font-weight: 500;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #64b5f6, #1976d2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #64b5f6, #1976d2);
+            border-radius: 2px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(100, 181, 246, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(100, 181, 246, 0.2);
+            border-color: rgba(100, 181, 246, 0.5);
+        }
+
+        .skill-category h3 {
+            color: #64b5f6;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(100, 181, 246, 0.1);
+            color: #64b5f6;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(100, 181, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(100, 181, 246, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, #64b5f6, #1976d2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 55%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(100, 181, 246, 0.2);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -20px;
+            border-left-color: rgba(100, 181, 246, 0.2);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -20px;
+            border-right-color: rgba(100, 181, 246, 0.2);
+        }
+
+        .timeline-date {
+            color: #64b5f6;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .timeline-company {
+            color: #90a4ae;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(100, 181, 246, 0.2);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(100, 181, 246, 0.3);
+            border-color: rgba(100, 181, 246, 0.5);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #64b5f6, #1976d2);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .project-description {
+            color: #b0bec5;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-details {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .project-detail-label {
+            color: #64b5f6;
+            font-weight: 500;
+        }
+
+        .project-detail-value {
+            color: #e0e0e0;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-badge {
+            background: rgba(25, 118, 210, 0.2);
+            color: #64b5f6;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(25, 118, 210, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(100, 181, 246, 0.2);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64b5f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #1976d2;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section {
+                padding: 4rem 1rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 50px;
+                margin-right: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -20px;
+                right: auto;
+                border-right-color: rgba(100, 181, 246, 0.2);
+                border-left-color: transparent;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="shar.jpg" alt="Sharvesh Vijayaraghavan" class="profile-image">
+            <h1>Sharvesh Vijayaraghavan</h1>
+            <p class="subtitle">AI/ML Engineer & Full-Stack Developer</p>
+            <p class="description">
+                A highly driven third-year B.Tech Computer Science student specializing in AI & ML, 
+                with proven expertise in developing scalable applications and AI-based solutions 
+                across healthcare, NLP, finance, and agriculture domains.
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>sharveshv246@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+91 98849 62404</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title fade-in">Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category fade-in">
+                <h3>Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">MATLAB</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>AI/ML Frameworks</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">Hugging Face</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>Tools & Technologies</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Azure</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>Core Concepts</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Data Structures & Algorithms</span>
+                    <span class="skill-tag">Database Management</span>
+                    <span class="skill-tag">Object-Oriented Programming</span>
+                    <span class="skill-tag">Artificial Intelligence</span>
+                    <span class="skill-tag">Operating Systems</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <h2 class="section-title fade-in">Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Jun 2025 - Jul 2025</div>
+                    <div class="timeline-title">Summer Internship</div>
+                    <div class="timeline-company">NIT Calicut</div>
+                    <p>Developed an NLP-based system using Hugging Face T5 to automatically convert user stories into UML class diagrams, achieving over 90% accuracy in diagram generation.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Apr 2025 - Jun 2025</div>
+                    <div class="timeline-title">AIML Virtual Internship</div>
+                    <div class="timeline-company">EduSkills</div>
+                    <p>Completed comprehensive Google-provided AI/ML internship program, gaining expertise in core AI concepts, supervised learning, model evaluation, and ethical AI practices.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Jan 2025 - Mar 2025</div>
+                    <div class="timeline-title">Data Engineering Virtual Internship</div>
+                    <div class="timeline-company">EduSkills (AWS)</div>
+                    <p>Gained practical exposure to cloud-based data processing, data pipeline design, data warehousing fundamentals, and large-scale data management using AWS tools and services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title fade-in">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <h3 class="project-title">Parkinson's Disease Detection using Multimodal Handwriting Analysis</h3>
+                    <p class="project-description">
+                        Advanced research project developing a hybrid machine learning and deep learning model for early Parkinson's Disease detection using handwriting analysis.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail">
+                            <span class="project-detail-label">Accuracy:</span>
+                            <span class="project-detail-value">95%</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Dataset:</span>
+                            <span class="project-detail-value">HandPD</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Models:</span>
+                            <span class="project-detail-value">CNN + Random Forest</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Collaboration:</span>
+                            <span class="project-detail-value">2 Faculty Members</span>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">TensorFlow</span>
+                        <span class="tech-badge">CNN</span>
+                        <span class="tech-badge">Random Forest</span>
+                        <span class="tech-badge">Computer Vision</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <h3 class="project-title">NLP-Based User Story to UML Converter</h3>
+                    <p class="project-description">
+                        Intelligent system that automatically converts user stories into UML class diagrams using advanced Natural Language Processing techniques.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail">
+                            <span class="project-detail-label">Accuracy:</span>
+                            <span class="project-detail-value">90%+</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Model:</span>
+                            <span class="project-detail-value">Hugging Face T5</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Output:</span>
+                            <span class="project-detail-value">UML Class Diagrams</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Domain:</span>
+                            <span class="project-detail-value">Software Engineering</span>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Hugging Face</span>
+                        <span class="tech-badge">T5 Transformer</span>
+                        <span class="tech-badge">NLP</span>
+                        <span class="tech-badge">UML</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <h3 class="project-title">Real-Time HPC System Monitoring</h3>
+                    <p class="project-description">
+                        Full-stack development project for real-time system monitoring and training progress visualizations for High-Performance Computing Systems.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail">
+                            <span class="project-detail-label">Architecture:</span>
+                            <span class="project-detail-value">Full-Stack</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Real-time:</span>
+                            <span class="project-detail-value">Live Monitoring</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Visualizations:</span>
+                            <span class="project-detail-value">Training Progress</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Target:</span>
+                            <span class="project-detail-value">HPC Systems</span>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">MongoDB</span>
+                        <span class="tech-badge">Real-time Analytics</span>
+                        <span class="tech-badge">Data Visualization</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <h3 class="project-title">App Review Analysis using NLP</h3>
+                    <p class="project-description">
+                        Comprehensive sentiment analysis and ranking system for mobile applications using advanced Natural Language Processing techniques.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail">
+                            <span class="project-detail-label">Technique:</span>
+                            <span class="project-detail-value">Sentiment Analysis</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Output:</span>
+                            <span class="project-detail-value">App Rankings</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Data Source:</span>
+                            <span class="project-detail-value">User Reviews</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Domain:</span>
+                            <span class="project-detail-value">Mobile Analytics</span>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">NLP</span>
+                        <span class="tech-badge">Sentiment Analysis</span>
+                        <span class="tech-badge">Text Processing</span>
+                        <span class="tech-badge">Data Analytics</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <h3 class="project-title">E-Commerce Platform</h3>
+                    <p class="project-description">
+                        Full-featured e-commerce website developed as part of technical team involvement, showcasing complete web development skills.
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail">
+                            <span class="project-detail-label">Type:</span>
+                            <span class="project-detail-value">Full-Stack Web App</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Features:</span>
+                            <span class="project-detail-value">Complete E-commerce</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Database:</span>
+                            <span class="project-detail-value">MySQL/MongoDB</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="project-detail-label">Role:</span>
+                            <span class="project-detail-value">Lead Developer</span>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">Frontend</span>
+                        <span class="tech-badge">Backend</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title fade-in">About Me</h2>
+        <div class="fade-in">
+            <p style="font-size: 1.1rem; color: #b0bec5; line-height: 1.8; text-align: center; max-width: 800px; margin: 0 auto;">
+                Currently pursuing B.Tech in Computer Science and Engineering with specialization in AI & ML at SRM Institute of Science and Technology, 
+                maintaining a stellar CGPA of 9.5. I'm passionate about leveraging cutting-edge technology to solve real-world problems, 
+                with particular expertise in developing AI-based solutions across healthcare, NLP, finance, and agriculture domains.
+                <br><br>
+                My journey includes winning first place in an intra-college hackathon, leading technical teams, and contributing to impactful research projects. 
+                I believe in continuous learning and have completed multiple prestigious internships with Google, AWS, and leading institutions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Education & Achievements -->
+    <section id="education" class="section">
+        <h2 class="section-title fade-in">Education & Achievements</h2>
+        <div class="skills-container">
+            <div class="skill-category fade-in">
+                <h3>🎓 Current Education</h3>
+                <div style="color: #e0e0e0; line-height: 1.6;">
+                    <p><strong>B.Tech Computer Science & Engineering</strong></p>
+                    <p>Specialization: AI & Machine Learning</p>
+                    <p>SRM Institute of Science and Technology</p>
+                    <p><span style="color: #64b5f6;">CGPA: 9.5/10</span></p>
+                    <p>Duration: 2023 - 2027</p>
+                </div>
+            </div>
+            
+            <div class="skill-category fade-in">
+                <h3>🏆 Achievements</h3>
+                <div style="color: #e0e0e0; line-height: 1.6;">
+                    <p>🥇 <strong>First Place - Intra-College Hackathon</strong></p>
+                    <p>   Full-Stack Development Challenge</p>
+                    <p>👨‍💼 <strong>CCA Captain - School Leadership</strong></p>
+                    <p>🤝 <strong>Community Volunteer</strong></p>
+                    <p>   Kaikoduppom Charitable Trust</p>
+                </div>
+            </div>
+            
+            <div class="skill-category fade-in">
+                <h3>📚 Academic Background</h3>
+                <div style="color: #e0e0e0; line-height: 1.6;">
+                    <p><strong>CBSE XII:</strong> <span style="color: #64b5f6;">88.2%</span></p>
+                    <p><strong>CBSE X:</strong> <span style="color: #64b5f6;">93.4%</span></p>
+                    <p>Sunshine Chennai Senior Secondary School</p>
+                </div>
+            </div>
+            
+            <div class="skill-category fade-in">
+                <h3>🏢 Professional Involvement</h3>
+                <div style="color: #e0e0e0; line-height: 1.6;">
+                    <p><strong>IEEE SSIT</strong> - Technical Team Member</p>
+                    <p>Mar 2023 - Apr 2024</p>
+                    <p><strong>dBug Labs</strong> - Technical Team Member</p>
+                    <p>Oct 2023 - Oct 2024</p>
+                    <p>• Front-end Development & IoT</p>
+                    <p>• Interview Coordination</p>
+                    <p>• Team Mentoring</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title fade-in">Let's Connect</h2>
+        <div class="fade-in" style="text-align: center;">
+            <p style="font-size: 1.1rem; color: #b0bec5; margin-bottom: 2rem;">
+                Ready to collaborate on exciting projects or discuss opportunities in AI/ML and Full-Stack Development
+            </p>
+            <div class="contact-info" style="justify-content: center; margin-bottom: 2rem;">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>sharveshv246@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+91 98849 62404</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Chennai, Tamil Nadu, India</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://github.com/sharvesh24" class="social-link" target="_blank">
+                <span>🔗</span>
+                <span>GitHub</span>
+            </a>
+            <a href="#" class="social-link" target="_blank">
+                <span>💼</span>
+                <span>LinkedIn</span>
+            </a>
+            <a href="mailto:sharveshv246@gmail.com" class="social-link">
+                <span>📧</span>
+                <span>Email</span>
+            </a>
+        </div>
+        <p style="color: #90a4ae; font-size: 0.9rem;">
+            © 2025 Sharvesh Vijayaraghavan. Designed with passion for innovation and excellence.
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animation elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+
+        // Staggered animation for skill categories
+        const skillCategories = document.querySelectorAll('.skill-category');
+        skillCategories.forEach((category, index) => {
+            category.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Staggered animation for project cards
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.15}s`;
+        });
+
+        // Add hover effects to timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'translateY(-5px)';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Dynamic typing effect for hero subtitle
+        const subtitle = document.querySelector('.hero .subtitle');
+        const titles = [
+            'AI/ML Engineer & Full-Stack Developer',
+            'Problem Solver & Tech Leader'
+        ];
+        
+        let titleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeWriter() {
+            const currentTitle = titles[titleIndex];
+            
+            if (isDeleting) {
+                subtitle.textContent = currentTitle.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                subtitle.textContent = currentTitle.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentTitle.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                titleIndex = (titleIndex + 1) % titles.length;
+            }
+            
+            setTimeout(typeWriter, isDeleting ? 50 : 100);
+        }
+        
+        // Start typing effect after page load
+        setTimeout(typeWriter, 2000);
+    </script>
+</body>
